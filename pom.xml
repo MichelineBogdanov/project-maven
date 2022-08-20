@@ -54,13 +54,6 @@
     <build>
         <finalName>project-maven</finalName>
 
-        <resources>
-            <resource>
-                <directory>${project.build.directory}/lib</directory>
-                <targetPath>lib/</targetPath>
-            </resource>
-        </resources>
-
         <plugins>
 
             <plugin>
@@ -70,12 +63,12 @@
                     <execution>
                         <id>copy-resources</id>
                         <!-- here the phase you need -->
-                        <phase>validate</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.directory}/lib</directory>
